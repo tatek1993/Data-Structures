@@ -14,36 +14,44 @@ Stretch: What if you could only use instances of your Stack class to implement t
          What would that look like? How many Stacks would you need? Try it!
 """
 
-from singly_linked_list import singly_linked_list import Linked
+import sys
+sys.path.append('../singly_linked_list')
+from singly_linked_list import LinkedList
+
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+
+#     def __len__(self):
+#         return len(self.storage)
+
+#     def enqueue(self, value):
+#         return self.storage.append(value)
+
+#     def dequeue(self):
+#         if len(self.storage) > 0:
+#             return self.storage.pop(0)
+#         else:
+#             return None
 
 
 class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = LinkedList()
 
     def __len__(self):
-        return len(self.storage)
+        return self.size
 
     def enqueue(self, value):
-        return self.storage.append(value)
+        self.storage.add_to_tail(value)
+        self.size += 1
+        return value
 
     def dequeue(self):
-        if len(self.storage) > 0:
-            return self.storage.pop(0)
+        if self.size > 0:
+            self.size -= 1
+            return self.storage.remove_head()
         else:
             return None
-
-# class Queue:
-#     def __init__(self):
-#         self.size = 0
-#         self.storage = LinkedList()
-
-#     def __len__(self):
-#         return
-
-#     def enqueue(self, value):
-#         pass
-
-#     def dequeue(self):
-#         pass
