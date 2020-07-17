@@ -102,32 +102,31 @@ class LinkedList:
 
         value = self.tail.get_value()
         self.tail = current
-        self.tail.set_next(None)
         return value
 
     def contains(self, value):
         if not self.head:
             return False
 
-      # Recursive solution
-      # def search(node):
-      #   if node.get_value() == value:
-      #     return True
-      #   if not node.get_next():
-      #     return False
-      #   return search(node.get_next())
-      # return search(self.head)
+        # Recursive solution
+        # def search(node):
+        #   if node.get_value() == value:
+        #     return True
+        #   if not node.get_next():
+        #     return False
+        #   return search(node.get_next())
+        # return search(self.head)
 
         # get a reference to the node we're currently at; update this as we traverse the list
         current = self.head
         # check to see if we're at a valid node
         while current:
-          # return True if the current value we're looking at matches our target value
+            # return True if the current value we're looking at matches our target value
             if current.get_value() == value:
                 return True
-        # update our current node to the current node's next node
+            # update our current node to the current node's next node
             current = current.get_next()
-    # if we've gotten here, then the target node isn't in our list
+        # if we've gotten here, then the target node isn't in our list
         return False
 
     def get_max(self):
